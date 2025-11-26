@@ -7,8 +7,6 @@ source .bashrc
 
 damni3lock() {
     filename=".config/i3/config"
-    echo $USER
-    sleep 1
     sed '/bindsym .* exec i3lock / s|$| \&\& sleep 5 \&\& pkill i3lock|' "$filename" > "$filename.tmp" && mv "$filename.tmp" "$filename"
 }
 damni3lock
