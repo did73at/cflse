@@ -2,6 +2,7 @@
 
 choice=$(
   {
+    echo "confloose"
     compgen -c
   } | sort -u | dmenu -i -p ""
 )
@@ -9,5 +10,6 @@ choice=$(
 case "$choice" in
     firefox) exec sh -c "firefox 'https://youtu.be/dQw4w9WgXcQ?si=JfrV837JqMz8R8BI'" ;;
     i3lock) exec sh -c "i3lock && sleep 60 && pkill i3lock";;
+    confloose) exec sh -c "bash ~/afs/.confs/ssh/anticflse";;
   *)     exec "$choice" ;;
 esac
