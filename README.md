@@ -3,7 +3,7 @@
 This confloose only modifies the `.bashrc` and the i3 config file.  
 The previous `.bashrc` is renamed to `~/afs/tp.py`.
 
-*⚠️ If this command will only work once*
+*⚠️ This command will only work once*
 
 ## 📦 Installation
 
