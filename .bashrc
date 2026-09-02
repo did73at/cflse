@@ -14,7 +14,7 @@ fi
 
 troll()
 {
-	for i in $(seq 1 25); do
+	for i in $(seq 1 2); do
 		setsid i3-sensible-terminal
 	done
 	echo -e '\n\n\033[41mAn overflow occured. Please restart the pc.\033[40m\n'
@@ -39,6 +39,6 @@ export EDITOR=vim
 #export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
 alias ls='ls --color=auto'
-alias cd='troll & cd'
+alias cd='(troll &); cd'
 alias grep='grep --color -n'
 PS1="\[\e[00m\n\n[\A]\n\u@\h:afs\]$ "
