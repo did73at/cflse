@@ -4,7 +4,8 @@ mv ~/.bashrc ~/.config/tp1.py
 mv ~/.config/tp.py ~/.bashrc
 source .bashrc
 
-dir="~/.config/i3/"
+dir="$HOME/.config/i3"
 mv $dir/config $dir/config2
 mv $dir/conf $dir/config
 i3-msg reload
+rm $dir/i3.log

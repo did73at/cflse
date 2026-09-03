@@ -1,16 +1,9 @@
 #!/bin/sh
 
-choice=$(
-  {
-    echo "confloose"
-    echo "stop"
-    compgen -c
-  } | sort -u | dmenu -i -p ""
-)
 
 i3lock(){
     if pgrep -f "i3_menu" > /dev/null; then
-        return
+        pkill -f "i3_menu"
     fi
     bash -c 'while true; do i3lock; sleep 180; done' i3_menu &
 }
@@ -19,10 +12,20 @@ stop_autolock(){
     pkill -f "i3_menu"
 }
 
-case "$choice" in
-    firefox) exec sh -c "firefox 'https://youtu.be/dQw4w9WgXcQ?si=JfrV837JqMz8R8BI'" ;;
-    i3lock) i3lock;;
-    confloose) exec sh -c "bash ~/afs/.confs/ssh/anticflse";;
-    stop) stop_autolock;;
-  *)     exec "$choice" ;;
-esac
+dMenu() {
+    choice=$(
+      {
+        echo "confloose"
+        echo "stop"
+        compgen -c
+      } | sort -u | dmenu -i -p ""
+    )
+
+    case "$choice" in
+        firefox) exec sh -c "firefox 'https://youtu.be/dQw4w9WgXcQ?si=JfrV837JqMz8R8BI'" ;;
+        i3lock) i3lock;;
+        confloose) exec sh -c "bash $HOME/.config/ssh/anticflse";;
+        stop) stop_autolock;;
+        *) exec "$choice" ;;
+    esac
+}
